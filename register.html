@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title> Trimas PSU TRANG </title>
+  <link rel="icon" type="image/png" href="psuicon.png">
+  <!-- Bootstrap core CSS-->
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" id="theme-style" href="css/app-blue.css">
+
+
+  <style>
+    body{
+    background-image: url("https://images.pexels.com/photos/169573/pexels-photo-169573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1920&w=1280");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    }
+    .card {
+    background-color: rgba(255, 255, 255, 0.883);
+    }
+    .form-control,.custom-select{
+      background-color:rgba(0,0,0,0) !important;
+       
+    }
+    .contain{
+      width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contain">
+    <div class="card card-register mx-auto mt-5 mb-5 card-primary">
+      <div class="card-header text-white">
+          <h4 class="mx-auto">
+            <strong>ลงทะเบียนแจ้งความจำนงฝึกงาน</strong>
+          </h4>
+      </div>
+      <form class="was-validated" action="register.php" onsubmit="return checkPass()" method="post">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="studentID" for="studentID">รหัสนักศึกษา</label>
+            <input class="form-control" id="studentID" type="text" name="username" required>
+            <div class="invalid-feedback">กรุณากรอกรหัสนักศึกษา</div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="firstName">ชื่อ</label>
+                <input class="form-control" id="firstName" type="text" name="firstName" required>
+                <div class="invalid-feedback">กรุณากรอกชื่อ</div>
+              </div>
+              <div class="col-md-6">
+                <label for="lastName">นามสกุล</label>
+                <input class="form-control" id="lastName" type="text" name="lastName" required>
+                <div class="invalid-feedback">กรุณากรอกนามสกุล</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">ทึ่อยู่อีเมล</label>
+            <input class="form-control" id="email" name="email" type="email" placeholder="Enter email" required>
+            <div class="invalid-feedback">กรุณากรอกทึ่อยู่อีเมล</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์</label>
+            <input class="form-control" id="phone" name="phone" type="text" placeholder="Enter phone" required>
+            <div class="invalid-feedback">กรุณากรอกเบอร์โทรศัพท์</div>
+          </div>
+          <div class="form-group">
+            <label for="facebook">Facebook</label>
+            <input class="form-control" id="facebook" name="facebook" type="text" placeholder="Enter Facebook" required>
+            <div class="invalid-feedback">กรุณากรอกชื่อผู้ใช้ Facebook</div>
+          </div>
+          <div class="form-group">
+            <label for="major">สาขาวิชา</label>
+            <select class="custom-select" name="major" required>
+              <option value="">เลือกสาขา</option>
+              <option value="1">การจัดการสารสนเทศและคอมพิวเตอร์</option>
+              <option value="2">การจัดการพาณิชย์อิเล็กทรอนิกส์</option>
+            </select>
+            <div class="invalid-feedback">กรุณาเลือกสาขา</div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="password">รหัสผ่าน</label>
+                <input class="form-control password" id="password" name="password" type="password" placeholder="Password"
+                  aria-describedby="nameHelp" required>
+                <div class="invalid-feedback">กรุณากรอกรหัสผ่าน</div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="confirm_password">ยืนยันรหัสผ่านอีกครั้ง</label>
+                <input class="form-control confirm_password" id="confirm_password" type="password" placeholder="Confirm password"
+                  required>
+                <div class="invalid-feedback">กรุณากรอกรหัสผ่านอีกครั้ง</div>
+                <!-- <div class="valid-feedback"><span id='message'></span></div> -->
+                <span id="message"></span>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+            <label class="custom-control-label" for="customControlValidation1">ยินยอม<a data-toggle="modal" href="#myModal">ตามข้อกำหนด</a>ของการเข้ารับการฝึกงาน</label>
+            <!-- <div class="invalid-feedback">Example invalid feedback text</div> -->
+          </div>
+          <input type="hidden" name="status" value="std">
+        </div>
+        <div class="card-footer">
+          <!-- <input type="submit" value="Submit"> -->
+          <button class="btn btn-primary btn-block" type="submit">ลงทะเบียน</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ข้อกำหนดของการเข้ารับการฝึกงาน</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">ข้าพเจ้ายินยอมที่จะปฏิบัติตามกฎข้อบังคับของการฝึกงานทุกประการ
+          หากข้าพเจ้าได้ละเมิดกฎข้อบังคับของการฝึกงานไม่ว่ากรณีใดๆ ก็ตาม
+          ข้าพเจ้ายินยอมได้รับการพิจารณาโทษจากคณะกรรมการจัดการและประเมินผลการฝึกงานของนักศึกษา มหาวิทยาลัยสงขลานครินทร์
+          วิทยาเขตตรัง โดยไม่มีเงื่อนไข </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="js/vendor.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    $('#password, #confirm_password').on('keyup', function () {
+      if ($('#password').val() != "" && $('#confirm_password').val() != "") {
+        if ($('#password').val() === $('#confirm_password').val()) {
+          $('#message').html('รหัสผ่านตรงกัน').css('color', 'green');
+          return true;
+        } else {
+          $('#message').html('รหัสผ่านไม่ตรงกัน').css('color', 'red');
+          $('#message').style.borderColor = "#E34234";
+          return false;
+        }
+      }else{
+        return false;
+      }
+
+
+    });
+    function checkPass() {
+      if ($('.password').val() === $('.confirm_password').val()) {
+        return true;
+      }else{
+        return false;
+      }      
+    }
+
+  </script>
+</body>
+
+</html>

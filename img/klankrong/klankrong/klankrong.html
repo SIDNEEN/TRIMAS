@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        /* h2 {
+            color: rgb(255, 255, 255);
+            text-align: center;
+
+        } */
+
+        .txtblock {
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.527);
+        }
+
+        fieldset.scheduler-border {
+            border: 1px groove #ddd !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+
+        legend.scheduler-border {
+            border-bottom: #bb1717;
+            width: inherit;
+            padding: 0 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        body {
+            /* background-image: url(https://www.img.in.th/images/59e4e1be0156a357eef0c387ead03ae1.jpg); */
+            background-attachment: fixed;
+        }
+
+        container,
+        table {
+            background-color: #f2f2f2;
+            ;
+        }
+
+        .sbmt {
+            text-align: center;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .margin-right {
+            margin-right: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="well form-horizontal" method="POST" action="savestud.php">
+            <h2>
+                <center>กลั่นกรองสถานประกอบการ</center>
+            </h2>
+            <br>
+            <fieldset class="scheduler-border col-sm-5">
+                <div class="form-group ">
+                    <label> 946-346: การฝึกงานทางการจัดการสารสนเทศและคอมพิวเตอร์</label>
+                    <br>
+                    <label> จองสถานประกอบการที่ประกาศไว้</label>
+                </div>
+            </fieldset>
+            <div class="clearfix margin-right">
+                <div class="scheduler-border float-right">
+                    <div class="form-group ">
+                        <h3>ครั้งที่
+                            <span class="label label-default">1</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ข้อมูลนักศึกษา -->
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">ข้อมูลนักศึกษา</legend>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">รหัสนักศึกษา</label>
+                    <div class="col-md-3 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-credit-card"></i>
+                            </span>
+                            <input type="text" name="studcode" class="form-control" value="5850110033" readonly>
+                        </div>
+                    </div>
+                    <label class="col-md-1 control-label">ชื่อ-สกุล</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <input type="text" name="studname" class="form-control" value="นายชัยเกียรติ ชูรอด" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">หมายเลขโทรศัพท์ที่ติดต่อสะดวก</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-earphone"></i>
+                            </span>
+                            <input type="text" name="studnumber" class="form-control" value="0844974567" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">E-mail Address :</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </span>
+                            <input type="text" name="email" class="form-control" value="Chaikeut67@mail.com" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">เพิ่มผู้ร่วมสถานประกอบการเดียวกัน</button>
+                </div>
+
+            </fieldset>
+
+            <!-- ข้อมูลสถานประกอบการ -->
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">ข้อมูลสถานประกอบการ</legend>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ชื่อสถานประกอบการ</label>
+                    <div class="col-md-7 inputGroupContainer">
+                        <div class="input-group">
+                            <button type="button" class="btn btn-success">เพิ่ม</button> &nbsp;
+                            <button type="button" class="btn btn-primary">ค้นหา</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </span>
+                            <input type="text" name="compname" class="form-control" value="บริษัท วันโอวัน โกลเบิ้ล จำกัด" readonly>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ชื่อผู้บริหาร</label>
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <input type="text" name="bossname" class="form-control" value="นายสุรเชษฐ์ บริพักต์ดี">
+                        </div>
+                    </div>
+                    <label class="col-md-1 control-label"> ตำแหน่ง</label>
+                    <div class="col-md-3 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-tag"></i>
+                            </span>
+                            <input type="text" name="position" class="form-control" value="ผู้บริหาร">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ลักษณะการประกอบการขององค์กร</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-list-alt"></i>
+                            </span>
+                            <textarea name="description" rows="4" cols="40" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">เลขที่ </label>
+                    <div class="col-md-5 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </span>
+                            <input type="text" name="address" class="form-control" value="338 อาคาร A ชั้น 1 ซอย 20 ถนน รัชดาภิเษก" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> แขวง/ตำบล</label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-tower"></i>
+                            </span>
+                            <input type="text" name="tambol" class="form-control" value="สามเสนนอก" readonly>
+                        </div>
+                    </div>
+                    <label class="col-md-1 control-label">อำเภอ</label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-road"></i>
+                            </span>
+                            <input type="text" name="ampo" class="form-control" value="ห้วยขวาง" readonly>
+                        </div>
+                    </div>
+                    <label class="col-md-1 control-label"> จังหวัด</label>
+                    <div class="col-md-2 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                            </span>
+                            <input type="text" name="changwat" class="form-control" value="กรุงเทพมหานคร" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> รหัสไปรษณีย์ </label>
+                    <div class="col-md-3 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-send"></i>
+                            </span>
+                            <input type="text" name="zipcode" class="form-control" value="10310" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">เบอร์โทรศัพท์</label>
+                    <div class="col-md-3 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-earphone"></i>
+                            </span>
+                            <input type="text" name="compnumber" class="form-control" value="0614136849">
+                        </div>
+                    </div>
+                    <label class="col-md-2 control-label"> เบอร์โทรสาร</label>
+                    <div class="col-md-3 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-phone-alt"></i>
+                            </span>
+                            <input type="text" name="faxnumber" class="form-control" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Website/E-mail Address :</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                            </span>
+                            <input type="text" name="website" class="form-control" value="101g@ovano.com">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- ข้อมูลสถานประกอบการ -->
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">ข้อมูลการฝึกงาน</legend>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">แผนกที่ฝึกงาน</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-bookmark"></i>
+                            </span>
+                            <input type="text" name="department" class="form-control" value="IT Support">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> ลักษณะงานที่ได้รับมอบหมาย</label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-list-alt"></i>
+                            </span>
+                            <textarea name="workdetail" rows="4" cols="40" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ชื่อผู้ติดต่อ </label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-user"></i>
+                            </span>
+                            <input type="txt" name="pesoncont" class="form-control" value="นายพีรพล บุญเลิศ">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">เบอร์โทรศัพท์ </label>
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-earphone"></i>
+                            </span>
+                            <input type="text" name="telephone" class="form-control" value=" 0997848736">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="sbmt">
+                <input type="submit" value="ส่ง" class="btn btn-success" role="button" style="width:15%">
+            </div>
+        </form>
+    </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">ผู้ร่วมสถานประกอบการ</h4>
+                </div>
+                <div class="modal-body">
+                    5850110039 นายเกียรติ ชูชัย
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+                    <a href="klankrongAdd.html" class="btn btn-primary" role="button">เพิ่ม</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
